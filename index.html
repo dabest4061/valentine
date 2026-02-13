@@ -53,13 +53,18 @@
 function show() {
   let text = document.getElementById("box").value.toLowerCase();
 
-  if (text === "my love") {
-    document.getElementById("message").innerHTML =
-      "My love ❤️<br><br>" +
-      "I really appreciate you in my life. You are literally the best girl I could ever wish for.<br><br>" +
-      "Every moment with you is special. Your smile lights up my day, your laugh is my favorite sound, " +
-      "and your presence makes everything better. I promise to always support you, love you, and make you happy.<br><br>" +
-      "Happy Valentine’s Day 💖";
+ if (text.includes("my love")) {
+    document.getElementById("result").innerHTML =
+      "💖 My love 💖<br><br>" +
+      "I really appreciate you being in my life. You are the best thing that has ever happened to me — " +
+      "the girl I wished for, dreamed of, and somehow got lucky enough to have. " +
+      "I love you more than you know.<br><br>" +
+      "Every moment with you is a treasure. " +
+      "Your smile lights up my darkest days, and your laugh is my favorite sound. " +
+      "I promise to always be there for you, to support you, and to love you endlessly.<br><br>" +
+      "Happy Valentine’s Day ❤️";
+}
+
   } else {
     document.getElementById("message").innerHTML = "";
   }
@@ -68,3 +73,4 @@ function show() {
 
 </body>
 </html>
+
