@@ -1,35 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Valentine</title>
+  <title>Valentine Message</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      margin-top: 120px;
-      background: #eef5ff;
+      margin-top: 50px;
+      background: #e0f7ff;
+      padding: 0 10px;
     }
+
     h1 {
-      color: #0059b3;
-      font-size: 52px;
+      color: #0066cc;
+      font-size: 48px;
     }
+
+    h2 {
+      color: #004080;
+      font-size: 22px;
+      margin-bottom: 40px;
+    }
+
     input {
+      width: 300px;
+      max-width: 90%;
       padding: 10px;
-      width: 260px;
       font-size: 16px;
-      border: 2px solid #66a3ff;
+      border: 2px solid #3399ff;
       border-radius: 5px;
+      box-sizing: border-box;
     }
+
     button {
       padding: 10px 16px;
       font-size: 16px;
-      background: #66a3ff;
+      margin-left: 5px;
+      cursor: pointer;
+      background-color: #3399ff;
       color: white;
       border: none;
       border-radius: 5px;
-      cursor: pointer;
     }
-    #message {
+
+    button:hover {
+      background-color: #2673cc;
+    }
+
+    #result {
       margin-top: 40px;
       font-size: 22px;
       color: #003366;
@@ -37,40 +55,56 @@
       margin-left: auto;
       margin-right: auto;
       line-height: 1.5;
+      min-height: 200px;
     }
   </style>
 </head>
 <body>
 
-<h1>Valentine 💙</h1>
+  <h1>For My Love 💖</h1>
+  <h2>Type "my love" below and read what’s in my heart 💌</h2>
 
-<input id="box" placeholder="Type the secret word..." />
-<button onclick="show()">Go</button>
+  <input id="search" placeholder="Type 'my love' 💌" />
+  <button onclick="showMessage()">Search</button>
 
-<div id="message"></div>
+  <div id="result"></div>
 
-<script>
-function show() {
-  let text = document.getElementById("box").value.toLowerCase();
+  <script>
+    function showMessage() {
+      let text = document.getElementById("search").value.toLowerCase();
+      const result = document.getElementById("result");
+      result.innerHTML = "";
 
- if (text.includes("my love")) {
-    document.getElementById("result").innerHTML =
-      "💖 My love 💖<br><br>" +
-      "I really appreciate you being in my life. You are the best thing that has ever happened to me — " +
-      "the girl I wished for, dreamed of, and somehow got lucky enough to have. " +
-      "I love you more than you know.<br><br>" +
-      "Every moment with you is a treasure. " +
-      "Your smile lights up my darkest days, and your laugh is my favorite sound. " +
-      "I promise to always be there for you, to support you, and to love you endlessly.<br><br>" +
-      "Happy Valentine’s Day ❤️";
-}
+      if (text.includes("my love")) {
+        const message =
+          "💖 My love 💖\n\n" +
+          "I really appreciate you being in my life. You are the best thing that has ever happened to me — " +
+          "the girl I wished for, dreamed of, and somehow got lucky enough to have. I love you more than you know.\n\n" +
+          "Every moment with you is a treasure. " +
+          "Your smile lights up my darkest days, and your laugh is my favorite sound. " +
+          "I promise to always be there for you, to support you, and to love you endlessly.\n\n" +
+          "Happy Valentine’s Day ❤️\n\n" +
+          "From Mark";
 
-  } else {
-    document.getElementById("message").innerHTML = "";
-  }
-}
-</script>
+        let i = 0;
+        function typeWriter() {
+          if (i < message.length) {
+            if (message.charAt(i) === "\n") {
+              result.innerHTML += "<br>";
+            } else {
+              result.innerHTML += message.charAt(i);
+            }
+            i++;
+            setTimeout(typeWriter, 40);
+          }
+        }
+
+        typeWriter();
+      } else {
+        result.innerHTML = "No results found… try typing something special 💕";
+      }
+    }
+  </script>
 
 </body>
 </html>
-
