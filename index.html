@@ -6,12 +6,12 @@
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      margin-top: 100px;
+      margin-top: 120px;
       background: #eef5ff;
     }
     h1 {
       color: #0059b3;
-      font-size: 48px;
+      font-size: 52px;
     }
     input {
       padding: 10px;
@@ -33,16 +33,19 @@
       margin-top: 40px;
       font-size: 22px;
       color: #003366;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.5;
     }
   </style>
 </head>
 <body>
 
 <h1>Valentine 💙</h1>
-<p>Type the secret word</p>
 
-<input id="box" placeholder="Type here..." />
-<button onclick="show()">Search</button>
+<input id="box" placeholder="Type the secret word..." />
+<button onclick="show()">Go</button>
 
 <div id="message"></div>
 
@@ -53,10 +56,12 @@ function show() {
   if (text === "my love") {
     document.getElementById("message").innerHTML =
       "My love ❤️<br><br>" +
-      "I really appreciate you in my life. You are literally the best girl I could ever wish for.";
+      "I really appreciate you in my life. You are literally the best girl I could ever wish for.<br><br>" +
+      "Every moment with you is special. Your smile lights up my day, your laugh is my favorite sound, " +
+      "and your presence makes everything better. I promise to always support you, love you, and make you happy.<br><br>" +
+      "Happy Valentine’s Day 💖";
   } else {
-    document.getElementById("message").innerHTML =
-      "Nothing found 💕";
+    document.getElementById("message").innerHTML = "";
   }
 }
 </script>
